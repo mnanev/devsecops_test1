@@ -1,0 +1,27 @@
+name: Demo CI (Self-hosted)
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  demo:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Show runner info
+        run: |
+          echo "Runner hostname:"
+          hostname
+          echo "User:"
+          whoami
+          echo "OS:"
+          uname -a
+
+      - name: Demo step
+        run: echo "GitHub Actions works 🚀 (self-hosted)"
+
